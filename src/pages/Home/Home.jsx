@@ -5,11 +5,14 @@ import { useLoaderData } from 'react-router';
 
 const Home = () => {
     const data = useLoaderData();
-    console.log(data);
+
     return (
         <div>
-            <Banner></Banner>
-            <Books data={data}></Books>
+            <Banner />
+
+            <section id="books">
+                <Books data={data} />
+            </section>
         </div>
     );
 };

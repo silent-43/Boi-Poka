@@ -1,11 +1,14 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router";
-import { addToStoredDB } from "../../utility/addToDB.js";
+import { addToStoredDB, addToWishListDB } from "../../utility/addToDB.js";
+
+import { ToastContainer, toast } from 'react-toastify';
+
+// import Swal from "sweetalert2";
+// import withReactContent from "sweetalert2-react-content";
+// const MySwal = withReactContent(Swal);
 
 const BookDetails = () => {
-
-    
-
   const { id } = useParams();
   const bookId = parseInt(id);
   // console.log(id);
@@ -27,33 +30,39 @@ const BookDetails = () => {
   // console.log(data);
   // console.log(typeof id, data)
 
-
-
-  const handleMarkAsRead = id => {
+  const handleMarkAsRead = (id) => {
     //store with id
     //where to store
     //array of collection
     //if book already exit then show a alert
     //if book not exist then push in the collection or array
-    addToStoredDB(id);
-  }
 
+    // MySwal.fire({
+    //   title: "Good job!",
+    //   text: "You clicked the button!",
+    //   icon: "success",
+    // });
+
+    toast("Mark as Read !");
+    addToStoredDB(id);
+  };
+
+
+
+   const handleMarkAsWishList = (id) => {
+    
+    addToWishListDB(id);
+   }
 
 
   return (
     <diV className="w-2/3 mx-auto flex gap-5">
-
-
       <div>
         <img src={image} />
       </div>
-
-
-
-
+      <ToastContainer />
 
       <div>
-
         <h2>{bookName}</h2>
         <p>
           <span className="font-bold">By :</span> {author}
@@ -111,11 +120,21 @@ const BookDetails = () => {
         </div>
 
         <div className="mt-4 ml-50 mt-7">
-          <button onClick={()=> handleMarkAsRead(id)} className="btn btn-accent m-2">Mark as Read</button>
-          <button className="btn btn-info m-2">Add to Wishlist</button>
+          <button
+            onClick={() => handleMarkAsRead(id)}
+            className="btn btn-accent m-2"
+          >
+            Mark as Read
+          </button>
+
+
+
+
+          <button onClick={()=> handleMarkAsWishList(id)} className="btn btn-info m-2">Add to Wishlist</button>
+
+
         </div>
       </div>
-
     </diV>
   );
 };
