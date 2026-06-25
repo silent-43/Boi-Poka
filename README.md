@@ -1,17 +1,96 @@
-# React + Vite
+# 📚 Boi Poka
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Boi Poka is a modern book management web application where users can explore books, view detailed information, create a reading list, maintain a wishlist, and organize their reading journey efficiently.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🌐 Live Website: https://elegant-bunny-e13f23.netlify.app/
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+- 📖 Browse and explore a collection of books
+- 🔍 View detailed information about each book
+- ✅ Add books to the Read List
+- ❤️ Add books to the Wishlist
+- 📊 Sort books by Total Pages and Ratings
+- 💾 Data persistence using Local Storage
+- 📱 Fully Responsive Design
+- 🎨 Modern and User-Friendly Interface
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# Boi-Poka
+---
+
+## 🛠️ Technologies Used
+
+- React.js
+- React Router
+- Vite
+- Tailwind CSS
+- DaisyUI
+- React Tabs
+- Local Storage API
+
+---
+
+## 🎯 Core Functionalities
+
+### Read List
+
+Users can add books to their reading list and revisit them anytime.
+
+### Wishlist
+
+Users can save books they want to read in the future.
+
+### Sorting System
+
+Books can be sorted by:
+
+- Total Pages
+- Rating
+
+### Local Storage Integration
+
+All Read List and Wishlist data are stored in browser local storage, ensuring data remains available after page refresh.
+
+---
+
+## 📸 Pages
+
+### 🏠 Home
+
+- Hero Banner
+- Book Collection
+
+### 📚 Read List
+
+- View all read books
+- Sort by pages and ratings
+
+### ❤️ Wishlist
+
+- View all wished books
+- Manage future reading plans
+
+### ℹ️ About
+
+- Information about the project
+
+---
+
+## 👨‍💻 Developer
+
+**Sohag Karmokar**
+
+Software Engineering Student
+
+---
+
+## 📄 License
+
+This project is created for educational and learning purposes.
+
+---
+
+### ⭐ If you like this project, don't forget to give it a star!
