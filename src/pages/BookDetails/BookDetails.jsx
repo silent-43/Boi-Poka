@@ -1,11 +1,123 @@
-import React from 'react';
+import React from "react";
+import { useLoaderData, useParams } from "react-router";
+import { addToStoredDB } from "../../utility/addToDB.js";
 
 const BookDetails = () => {
-    return (
-        <div>
-            <h1>BookDetails</h1>
+
+    
+
+  const { id } = useParams();
+  const bookId = parseInt(id);
+  // console.log(id);
+  const data = useLoaderData();
+  const singleBook = data.find((book) => book.bookId === bookId);
+  // console.log(singleBook);
+  const {
+    bookName,
+    image,
+    publisher,
+    tags,
+    category,
+    review,
+    totalPages,
+    author,
+    yearOfPublishing,
+    rating,
+  } = singleBook;
+  // console.log(data);
+  // console.log(typeof id, data)
+
+
+
+  const handleMarkAsRead = id => {
+    //store with id
+    //where to store
+    //array of collection
+    //if book already exit then show a alert
+    //if book not exist then push in the collection or array
+    addToStoredDB(id);
+  }
+
+
+
+  return (
+    <diV className="w-2/3 mx-auto flex gap-5">
+
+
+      <div>
+        <img src={image} />
+      </div>
+
+
+
+
+
+      <div>
+
+        <h2>{bookName}</h2>
+        <p>
+          <span className="font-bold">By :</span> {author}
+        </p>
+        <div className="badge badge-outline">{category}</div>
+        <p>
+          {" "}
+          <span className="font-bold">Review :</span> {review}
+        </p>
+
+        <div className="flex gap-7 justify-baseline">
+          <div>
+            <span className="font-bold">Tag :</span>
+          </div>
+          <div className="flex justify-center gap-14">
+            {tags.map((tag) => (
+              <button>{tag}</button>
+            ))}
+          </div>
         </div>
-    );
+
+        <div className="border-t-2 border-dashed mt-4 mb-3"></div>
+
+        <div className=" flex justify-between">
+          <div>
+            <p> Number of Pages :</p>
+          </div>
+          <div>
+            <span className="font-bold">{totalPages}</span>
+          </div>
+        </div>
+        <div className=" flex justify-between">
+          <div>
+            <p>Publisher :</p>
+          </div>
+          <div>
+            <span className="font-bold">{publisher}</span>
+          </div>
+        </div>
+        <div className=" flex justify-between">
+          <div>
+            <p>Year Of Publishing :</p>
+          </div>
+          <div>
+            <span className="font-bold">{yearOfPublishing}</span>
+          </div>
+        </div>
+        <div className=" flex justify-between">
+          <div>
+            <p>Rating :</p>
+          </div>
+          <div>
+            <span className="font-bold">{rating}</span>
+          </div>
+        </div>
+
+        <div className="mt-4 ml-50 mt-7">
+          <button onClick={()=> handleMarkAsRead(id)} className="btn btn-accent m-2">Mark as Read</button>
+          <button className="btn btn-info m-2">Add to Wishlist</button>
+        </div>
+      </div>
+
+    </diV>
+  );
 };
 
 export default BookDetails;
